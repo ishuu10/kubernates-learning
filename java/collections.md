@@ -26,6 +26,21 @@ Set:
 ->linear collection with no duplicates
 
 hashset,linkedhashset,treeset
+(internally uses map to store)
 
 hashset ,linkedhashset -> maximum one null
-treeset
+treeset-no null
+
+all are not synchronizesd
+
+Map
+key value pairs
+
+hashmap
+- internally used array
+-no duplicate keys
+=no order
+-not synchornized
+
+linkedhashma-double linked kist
+

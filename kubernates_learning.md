@@ -10,6 +10,7 @@ like if you 100 containers ,how can we run ??
 analogy:
 
 Containers = delivery boys carrying food (your app)
+pods  the smallest, most basic deployable unit of computing that you can create and manage
 Nodes = bikes/vehicles (machines/VMs)
 Cluster = entire delivery fleet
 Kubernetes = control office managing everything

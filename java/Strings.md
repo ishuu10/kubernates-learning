@@ -20,7 +20,7 @@ String s=new s("helloo) #object
 literal
 ->faster
 ->same value points to same memort
-
+->string constant pool
 object
 ->slowr
 ->same value different memory

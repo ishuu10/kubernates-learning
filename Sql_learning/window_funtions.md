@@ -5,6 +5,11 @@ RANK()
 SUM()
 MAX()
 AVG()
+
+syntax is <function> oVER() as <alias name>
+
+<function> OVER(<partition >) as <alias name>
+
 A window function performs calculations across a set of rows without collapsing rows.
 
 | emp_id | dept | salary |
@@ -31,30 +36,41 @@ PARTITION BY
 
 Like GROUP BY but retains rows.
 
-select emp_id,dept,salary ,AVG(salary) over(partition by dept)  as avg_salary
+select emp_id,dept,salary ,max(salary) over(partition by dept)  as max_salary
 
-| emp_id | dept | salary |avg_salary
+| emp_id | dept | salary |max_salary
 | ------ | ---- | ------ |------
-| 1      | IT   | 1000   |2000
-| 2      | IT   | 2000   |2000
-| 3      | IT   | 3000   |2000
-| 4      | HR   | 1500   |2000
-| 5      | HR   | 2500   |2000
+| 1      | IT   | 1000   |3000
+| 2      | IT   | 2000   |3000
+| 3      | IT   | 3000   |3000
+| 4      | HR   | 1500   |2500
+| 5      | HR   | 2500   |2500
 
-ROW NUMBER
+ROW NUMBER()
+assignes number to each row 
 
-select emp_id,salary,ROW_NUMBER() OVER(order by salary) as rn
-(assigns rank for the department)
+select emp_id,dept,salary,ROW_NUMBER() OVER() as row_number
 
-| emp_id | salary | rn |
-| ------ | ------ | -- |
-| 3      | 3000   | 1  |
-| 5      | 2500   | 2  |
-| 2      | 2000   | 3  |
-| 4      | 1500   | 4  |
-| 1      | 1000   | 5  |
+| emp_id | dept | salary |max_salary|row_numer
+| ------ | ---- | ------ |------     |-----
+| 1      | IT   | 1000   |3000.      |1
+| 2      | IT   | 2000   |3000       |2
+| 3      | IT   | 3000   |3000.      |3
+| 4      | HR   | 1500   |2500       |4
+| 5      | HR   | 2500   |2500.      |5
 
 ROW_NUMBER() ignores ties entirely and assigns a unique, sequential number to every single row
+
+select emp_id,dept,salary,ROW_NUMBER() OVER(partition by dept) as row_number
+
+| emp_id | dept | salary |max_salary|row_numer
+| ------ | ---- | ------ |------     |-----
+| 1      | IT   | 1000   |3000.      |1
+| 2      | IT   | 2000   |3000       |2
+| 3      | IT   | 3000   |3000.      |3
+| 4      | HR   | 1500   |2500       |1
+| 5      | HR   | 2500   |2500.      |2
+
 
 RANK() assigns the same rank to identical values, but skips subsequent numbers, leaving gaps in the ranking sequence.
 
@@ -84,3 +100,14 @@ FROM Employees;
 | 1000   | 1500        |
 | 1500   | 2000        |
 | 2000   | 2500        |
+
+common q&a
+2n highest salary
+
+select * from (select salary,dense_rank() over(order by salary)rnk from employee) t where rnk =2
+
+here t is name of temp table created from query(select salary,dense_rank() over(order by salary)rnk from employee)
+liek it will read 
+(SELECT salary
+FROM t
+WHERE rnk = 2;)

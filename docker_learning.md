@@ -21,7 +21,7 @@ standarixation of runtime
 
 how it works
 
-docker host -unifomr platfort 
+docker host -unifomr platfort
 
 docker engine is where client -server Docker daemon, a Docker API that interacts with the daemon, and a command-line interface (CLI) that talks to the daemon.
 docker engine ->ore part docker daemon , that handles the creation and management of containers.

@@ -4,11 +4,14 @@ api ,ui ,ai and mobile
 api ,appplication programmming interface 
 
 res ,soap ,websocket ,grpc,graphq
-rest-representational state transfer protcool- 
-stateless -not store
-client-server,
+rest-(Representational State Transfer)
+SOAP (Simple Object Access Protocol) -xml
+
+stateless -that each request needs to include all the information necessary for processing it.
+client-server
 unfirm interace- standard methods
-resoure based-
+Cacheability
+Layered system architecture- like proxy
 
 http -hyper text transfer protocol
 
