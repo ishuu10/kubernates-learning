@@ -6,6 +6,8 @@ api ,appplication programmming interface
 res ,soap ,websocket ,grpc,graphq
 rest-(Representational State Transfer)
 SOAP (Simple Object Access Protocol) -xml
+WebSocket APIs- bidirectional
+gRPC APIs- high performance
 
 stateless -that each request needs to include all the information necessary for processing it.
 client-server

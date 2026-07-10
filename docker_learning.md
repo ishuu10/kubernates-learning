@@ -69,5 +69,27 @@ RUN
 
 cmd
 
+commands
+
+docker pull <options> <image>. it pulls the imgaes
+
+docker run <options> <image> it run ,based on options like 
+-d detached mode
+-it interactive mode
+-p 8080:80  with specific port
+--name -> name of container
+-v _> volume of mounting 
+
+docker rm <options> <image>
+
+-f force
+-v volume
+
+docker exec [OPTIONS] CONTAINER 
+(allows you to run new processes or commands inside a currently running Docker container it open so that you can do rgar )
+
+
+
+
 
 

@@ -39,13 +39,13 @@ this way we can change the implemntation
 
 java provied two way of doing this
 abstract class
--> it is is-a relationship like defines what an object is. eg dog is Animal ,so animal has properities like name,breath,sound
-- support single inheritance ie lets say Animal is abstract ,Pet is also abstract ,dog can inherit only one class
--can have constructor
--can have isnatnce variables any access variables
+-> An abstract class is used when related classes share common state and behavior
+ It can contain both abstract and concrete methods, constructors, and instance variables
 
 interface
-->can do relatioinship-define a peripheral capability or a contract that completely unrelated classes can implement.eg both spaceship and dog class can implement runnable (since they run)
+->can do relatioinship-define a, defines a contract or capability that classes agree to implement and supports multiple inheritance of type.
 ->no constructor
 ->support multiple in heritance like dog can implement spaceship(from which it takes run),pet (from which they take pet methods)
 ->public static final constant
+
+
