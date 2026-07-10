@@ -6,15 +6,16 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
+        stage('Debug') {
             steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                sh 'npx playwright test'
+                sh '''
+                    echo "PATH=$PATH"
+                    which node || true
+                    which npm || true
+                    node -v || true
+                    npm -v || true
+                    ls -R $NODEJS_HOME || true
+                '''
             }
         }
     }
