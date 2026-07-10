@@ -13,6 +13,7 @@
     "allure-playwright": "^3.0.9"
   },
   "dependencies": {
+    "allure": "^3.14.2",
     "dotenv": "^16.4.7"
   }
 }
