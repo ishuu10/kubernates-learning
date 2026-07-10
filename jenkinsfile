@@ -1,21 +1,31 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS'
+    environment {
+        PATH = "/usr/local/bin:${env.PATH}"
     }
 
     stages {
-        stage('Debug') {
+        stage('Check Node') {
             steps {
                 sh '''
-                    echo "PATH=$PATH"
-                    which node || true
-                    which npm || true
-                    node -v || true
-                    npm -v || true
-                    ls -R $NODEJS_HOME || true
+                    which node
+                    which npm
+                    node -v
+                    npm -v
                 '''
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'npx playwright test'
             }
         }
     }
