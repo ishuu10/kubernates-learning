@@ -17,7 +17,7 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'YOUR_CREDENTIALS_ID',
+                        credentialsId: 'my-app-creds',
                         usernameVariable: 'USERNAME',
                         passwordVariable: 'PASSWORD'
                     )
