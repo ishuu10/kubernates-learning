@@ -15,10 +15,19 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'npx playwright test'
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'YOUR_CREDENTIALS_ID',
+                        usernameVariable: 'USERNAME',
+                        passwordVariable: 'PASSWORD'
+                    )
+                ]) {
+                    sh 'npx playwright test'
+                }
             }
         }
     }
+
 
     post {
         always {
